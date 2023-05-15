@@ -5,6 +5,7 @@ const validateToken = require("../middlewares/validateTokenHandler")
 
 // router.post("/register",registerUser);
 
+
 router.route("/register").post(registerUser);
 
 router.get("/login",loginUser);

@@ -6,6 +6,7 @@ const
     updateProduct, deleteProduct
 } = require("../controllers/productController");
 
+const validateToken = require("../middlewares/validateTokenHandler");
 // Method 1 : We can directly handle the response from the route.
 
 // router.route("/").get((req,res) => {
@@ -35,7 +36,7 @@ const
     // router.route("/:id").delete(deleteProduct);
 
     // Method 2.2 : We can define routes with same url on single line
-
+    router.use(validateToken);
     router.route("/:id?").get(getProduct);
     router.route("/").post(createProduct);
     // router.route("/:id").put(updateProduct).delete(deleteProduct);
